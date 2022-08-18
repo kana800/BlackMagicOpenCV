@@ -59,10 +59,11 @@ DeckLink API provides two ways to find a device. You can use:
 > Video Capture operates in a push model with each video frame delivered to an `IDeckLinkInputCallback` object interface.
 
 For Video Capture, You need to create a *input callback* class with subclass of `IDeckLinkInputCallback` (`DeckLinkInputDevice`). To *start capture*. We need to: 
-    - Query `IDeckLinkInput` from `IDeckLink`
-    - Register Input Callback Class
-    - Enable Video and Audio Input
-    - Start Input Streams
+- Query `IDeckLinkInput` from `IDeckLink`
+- Register Input Callback Class
+- Enable Video and Audio Input
+- Start Input Streams
+    
 
 In `IDeckLinkInputCallback` class, `VideoInputFrameArrived` method is called when a video input frame or an audio packet has arrived. This method is implemented in `DeckLinkInputDevice::VideoInputFrameArrived`.
 
