@@ -17,8 +17,7 @@ DeckLinkInputDevice::DeckLinkInputDevice(
 }
 
 DeckLinkInputDevice::~DeckLinkInputDevice(){
-	/*summary: stops the decklinkcapture
-     *if its running*/
+    /*summary: stops the decklinkcapture*/
     if (m_currentlyCapturing) stopDeckLinkCapture();
 }
 
@@ -190,7 +189,9 @@ HRESULT DeckLinkInputDevice::VideoInputFormatChanged(
     BMDVideoInputFormatChangedEvents notificationEvents,
     IDeckLinkDisplayMode* newDisplayMode,
     BMDDetectedVideoInputFormatFlags detectedSignalFlags){
-    /**/
+    /*summary: calle when the video input format change
+     *has been detected by the hardware*/
+
     const BMDDisplayMode newBMDDisplayMode = newDisplayMode->GetDisplayMode();
     m_displayMode = newBMDDisplayMode;
 
@@ -207,7 +208,7 @@ HRESULT DeckLinkInputDevice::VideoInputFormatChanged(
         bmdVideoInputEnableFormatDetection);
     m_deckLinkInput->StartStreams();
 
-	return S_OK;
+    return S_OK;
 }
 
 HRESULT DeckLinkInputDevice::QueryInterface(
