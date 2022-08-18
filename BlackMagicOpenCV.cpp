@@ -1,11 +1,10 @@
-﻿// BlackMagicOpenCV.cpp : Defines the entry point for the application.
+﻿/*BlackMagicOpenCV.cpp : Defines the entry point for the application*/
 
 #include "BlackMagicOpenCV.h"
 #include "DeckLinkAPI.h"
 #include "DeckLinkInputDevice.h"
 #include "DeviceManager.h"
 #include "platform.h"
-
 #include <opencv2/opencv.hpp>
 
 
@@ -24,6 +23,7 @@ int main(int argc, char *argv[]){
 
 	while(true){
 		if (cv::waitKey(30) == 27){
+			capture->stopDeckLinkCapture();
 			break;
 		}
 		cv::Mat frame = capture->getFrame();

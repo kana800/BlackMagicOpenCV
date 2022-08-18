@@ -2,7 +2,8 @@
 
 DeckLinkInputDevice* DeckLinkInputDevice::CreateInstance(
     com_ptr<IDeckLink> &device){
-    /**/
+    /*summary: creates a instance of the class
+     *args: com_ptr<IDeckLink> &device -> decklink device*/
     return new DeckLinkInputDevice(device);       
 }
 
@@ -75,6 +76,7 @@ void DeckLinkInputDevice::startDeckLinkCapture(
         videoInputFlgas |= bmdVideoInputEnableFormatDetection;
     }
 
+    /*registering input callback class*/
     m_deckLinkInput->SetCallback(this);
 
     if (m_deckLinkInput->EnableVideoInput(m_displayMode,
@@ -147,7 +149,7 @@ HRESULT DeckLinkInputDevice::VideoInputFrameArrived(
     const auto height = (int32_t)videoFrame->GetHeight();
     const auto rowBytes = (int32_t)videoFrame->GetRowBytes();
 
-    /*converts IDeckLinkVideoFrame into opencv frame*/
+    /*converts IDeckLinkVideoFrame into OpenCV frame*/
     cv::Mat image(height, width, CV_8UC3);
 
     if (m_pixelFormat == bmdFormat8BitYUV){
@@ -210,7 +212,7 @@ HRESULT DeckLinkInputDevice::VideoInputFormatChanged(
 
 HRESULT DeckLinkInputDevice::QueryInterface(
     REFIID iid, LPVOID* ppv){
-    /**/
+
 	HRESULT result = S_OK;
 
 	if (iid == IID_IUnknown){
