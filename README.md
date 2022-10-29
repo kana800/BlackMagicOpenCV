@@ -6,7 +6,7 @@ Sample Code for Integrating OpenCV with a BlackMagicDevice (Windows). The BlackM
 <br />
 <p style="text-align: center" align="center">
   <a href="https://github.com/kana800/BlackMagicOpenCV">
-  <img src="blackmagicopencv.png" alt="Girl in a jacket"> 
+  <img src=".images/blackmagicopencv.png" alt="image logo"> 
   </a>
 
   <h3 align="center">BlackMagicOpenCV</h3>
